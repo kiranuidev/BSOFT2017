@@ -23,4 +23,8 @@ registerCtrl.post = function(req, res) {
         })
 
 };
+
+registerCtrl.login = function(req, res) {
+    res.render("login");
+}
 module.exports = registerCtrl;

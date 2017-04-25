@@ -13,8 +13,9 @@ module.exports = function(app) {
         };
         res.render("index", page);
     });
+    app.route("/login").get(registerCtrl.login);
     app.route("/register").get(registerCtrl.get);
     app.route("/register").post(registerCtrl.post);
-    app.route("/products/:id").get(productCtrl.get);
-    app.route("/products/search").post(productCtrl.search);
+    app.route("/products/:id").get(require('connect-ensure-login').ensureLoggedIn(), productCtrl.get);
+    app.route("/products/search").post(require('connect-ensure-login').ensureLoggedIn(), productCtrl.search);
 }
