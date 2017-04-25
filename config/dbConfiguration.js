@@ -9,4 +9,5 @@ module.exports = function() {
             console.log("Error in connecting to db");
         });
     require("../app/register/register.model");
+    require("../app/products/product.model");
 }
