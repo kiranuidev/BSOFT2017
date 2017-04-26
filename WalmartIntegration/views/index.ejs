@@ -1,0 +1,40 @@
+<html>
+ <head>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/flatly/bootstrap.min.css"></head>
+ <body>
+
+ <div clas="container">
+ <form action="search" method="post">
+ <div class="row">
+   <div class="col-md-3">
+    <input type="text" name="search" class="form-control">
+   </div>
+   <div class="col-md-1">
+    <button type="submit" class="btn btn-warning">Search</button>
+   </div>
+   <div class="col-md-6">
+    <label>Dear Customer we have total <%= data.totalResults %> for your search</label>
+   </div>
+ </div>
+ </form>
+<div class="row">
+<% for (let i=0;i<data.items.length;i++){ %>
+ <div class="col-md-4">
+    <div class="thumbnail">
+      <a href="<%= data.items[i].thumbnailImage %>">
+        <img src="<%= data.items[i].thumbnailImage %>" alt="Lights" style="width:30%">
+        <div class="caption">
+          <p><%= data.items[i].shortDescription %></p>
+        </div>
+      </a>
+    </div>
+  </div>
+
+<% } %>
+ 
+</div>
+ 
+
+           
+ </body>
+</html>
